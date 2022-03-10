@@ -12,11 +12,11 @@ module.exports.postMovies = postMovies;
 
 //GET BY ID
 const getMoviesbyId = async (req,res) => {
-        res.json(await Movie.find({_id: req.params.id}))
+    res.json(await Movie.find({_id: req.params.id}))
 }
 module.exports.getMoviesbyId = getMoviesbyId;
 
-//GET FILTERING BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
+//GET FILTER BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
 const getMovies = async (req,res) => {
     if(req.query.title){
         res.json(await Movie.find({title: req.query.title}))
