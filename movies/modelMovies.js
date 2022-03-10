@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = new mongoose.Schema({
-    name: String,
+    title: String,
     year: Number,
     genre: String,
     actor: String,
