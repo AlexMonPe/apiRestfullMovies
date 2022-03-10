@@ -4,6 +4,7 @@ const Schema = new mongoose.Schema({
     year: Number,
     genre: String,
     actor: String,
+    duration: Number,
 });
 const Movies = mongoose.model('Movies', Schema);
 module.exports = Movies;

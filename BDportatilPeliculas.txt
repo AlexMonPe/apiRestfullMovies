@@ -1,0 +1,28 @@
+{
+    "title": "intocable",
+    "year": 2011,
+    "genre": "comedia",
+    "actor": "omar sy",
+    "duration": 109
+}
+{
+    "title": "gladiator",
+    "year": 2000,
+    "genre": "accion",
+    "actor": "russell crowe",
+    "duration": 150
+}
+{
+    "title": "forrest gump",
+    "year": 1994,
+    "genre": "comedia",
+    "actor": "tom hanks",
+    "duration": 142
+}
+{
+    "title": "la vida es bella",
+    "year": 1997,
+    "genre": "drama",
+    "actor": "roberto benigni",
+    "duration": 117
+}

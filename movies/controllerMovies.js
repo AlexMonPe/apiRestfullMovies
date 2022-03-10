@@ -24,7 +24,11 @@ const getMovies = async (req,res) => {
         res.json(await Movie.find({genre: req.query.genre}))
     }else if (req.query.actor){
         res.json(await Movie.find({actor: req.query.actor}))
-    } else {
+    } else if (req.query.year){
+        res.json(await Movie.find({year: req.query.year}))
+    }else if (req.query.duration){
+        res.json(await Movie.find({duration: req.query.duration}))
+    }else {
         res.json(await Movie.find({}))
     }
 }
