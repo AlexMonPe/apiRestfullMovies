@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+
+import mongoose from 'mongoose';
 const Schema = new mongoose.Schema({
     title: String,
     year: Number,
@@ -7,4 +8,4 @@ const Schema = new mongoose.Schema({
     duration: Number,
 });
 const Movies = mongoose.model('Movies', Schema);
-module.exports = Movies;
+export default Movies;

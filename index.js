@@ -1,8 +1,9 @@
-const express = require('express');
-const routerMovies = require('./movies/routerMovies.js')
-const routerUsers = require('./users/routerUsers.js')
+import express from "express";
+import routerMovies from "./movies/routerMovies.js";
+import routerUsers from "./users/routerUsers.js"
+import mongoose from "mongoose"
+
 const app = express()
-const mongoose = require('mongoose')
 
 app.use(express.json());
 
