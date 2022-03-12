@@ -50,5 +50,4 @@ const updateMovie = async (req,res) => {
     
 }
 
-
 export {postMovie, getMovie, getMoviebyId,deleteMovie, updateMovie};
