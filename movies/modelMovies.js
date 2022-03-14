@@ -1,5 +1,7 @@
 
 import mongoose from 'mongoose';
+
+// Schema: Data structure of collection Movies
 const Schema = new mongoose.Schema({
     title: String,
     year: Number,
