@@ -1,16 +1,21 @@
-const express = require("express");
-const router = express.Router()
-const controller = require('./controllerUsers.js')
+import express from "express";
+const router = express.Router();
+import {getUser, getUserById, postUser, deleteUser, updateUser} from "./controllerUsers.js"
 
 
-// //GET DE USUARIOS POR NOMBRE/PERFIL
-router.get('/', controller.getUsers)
+// //GET USER BY NAME/ID
+router.get('/', getUser)
 
-//GET DE USUARIOS POR ID
-router.get('/:id', controller.getUserById)
+//GET USERS BY ID
+router.get('/:id', getUserById)
 
-//POST USUARIO NUEVO
-router.post('/', controller.postUsers)
-//DEFINIR ROLES DE ADMINISTRADOR Y CLIENTE
+//POST NEW USER
+router.post('/', postUser)
 
-module.exports = router;
+//DELETE USER BY ID
+router.delete('/:id', deleteUser)
+
+//PATCH USER
+router.patch('/:id', updateUser);
+
+export default router;

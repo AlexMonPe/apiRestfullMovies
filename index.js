@@ -1,19 +1,19 @@
-const express = require('express');
-const routerMovies = require('./movies/routerMovies.js')
-const routerUsers = require('./users/routerUsers.js')
+import express from "express";
+import routerMovies from "./movies/routerMovies.js";
+import routerUsers from "./users/routerUsers.js"
+import connection from "./config/BD.js";
+import morgan from "morgan";
+import winston from "winston";
+
+
 const app = express()
-const mongoose = require('mongoose')
-
 app.use(express.json());
+app.use(morgan('tiny'))
 
-app.listen(3003,()=> console.log('Server Up at port 3003'))
+app.listen(3003,()=> console.info('Server Up at port 3003'));
+
+// Connection DB
+connection();
+
 app.use('/movies', routerMovies);
 app.use('/users', routerUsers);
-
-mongoose.connect('mongodb://localhost:27017/Movies', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(()=> console.log('Mongoose-Server Up'))
-.catch((error)=> console.log(error))
- 
