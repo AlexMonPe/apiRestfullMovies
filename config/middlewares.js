@@ -16,8 +16,6 @@ const checkJwt = (req,res,next) => {
   
   const decoded = jwt.verify(tokenToCheck, 'secretkey')
 
-  console.log(decoded);
-
   res.json(decoded)
 }
 export {auth, checkJwt};
