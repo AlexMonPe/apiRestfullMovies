@@ -4,27 +4,29 @@ import routerUsers from "./users/routerUsers.js"
 import connection from "./config/BD.js";
 import morgan from "morgan";
 import {auth, checkJwt} from "./config/middlewares.js";
+import logger from "./lib/winston.js";
 
 
 const app = express()
 
 // Connection DB
 connection();
+// How to server up in express
+app.listen(3003,()=> console.info('Server Up at port 3003'));
+
 
 // Parse body contents to JSON that can interpretate it.
 app.use(express.json());
 // Morgan to show logs
-app.use(morgan('tiny'));
-
-//Autentication // PASAR A MIDDLEWARE PARA PONERLO EN CUALQUIER ENDPOINT
-// app.use("/", autentication)
+app.use(morgan('combined', { stream: logger.stream }));
 
 
-// How to server up with express
-app.listen(3003,()=> console.info('Server Up at port 3003'));
+app.use("/", (req,res) => res.send('welcome') )
 
 
-app.use('/auth', checkJwt)
+
+// Endpoint for autentication
+//app.use('/auth', checkJwt)
 
 // Routes defined
 app.use('/movies', routerMovies);
