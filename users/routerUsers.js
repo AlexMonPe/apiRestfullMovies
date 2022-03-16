@@ -4,19 +4,19 @@ import {getUser, getUserById, postUser, deleteUser, updateUser} from "./controll
 import {autentication, checkToken} from "../config/middlewares.js"
 
 // //GET USER BY NAME/ID
-router.get('/', checkToken, getUser)
+router.get('/', checkToken("client"), getUser)
 
 //GET USERS BY ID
-router.get('/:id', getUserById)
+router.get('/:id', checkToken("administrator"),getUserById)
 
 //POST NEW USER
 router.post('/', checkToken("administrator"), postUser)
 
 //DELETE USER BY ID
-router.delete('/:id', deleteUser)
+router.delete('/:id', checkToken("administrator"), deleteUser)
 
 //PATCH USER
-router.patch('/:id', updateUser);
+router.patch('/:id', checkToken("administrator"), updateUser);
 
 // Endpoint for autentication
 router.post('/auth', autentication)

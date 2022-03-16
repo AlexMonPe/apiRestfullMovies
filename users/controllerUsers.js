@@ -10,18 +10,24 @@ import Users from "./modelUsers.js"
 // }
 // ANOTHER METHOD TO CREATE USERS
  
-const postUser = async (req,res) => {
-    const userToCreate = {
-        ...req.body, // take the rest of the object of req.body
-        role: "client",
-    }
+const postUser = async (req,res,next) => {
+        console.log(req.body)
+        console.log(req.body.email)
+        console.log(req.body.password)
     try{
+        const userToCreate = {
+            //...req.body, // take the rest of the object of req.body
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            role: "client",
+        }
         const userCreated = await Users.create(userToCreate);
+        console.log(userCreated)
         res.status(200).json(userCreated)
     }catch(error){
         res.json(error)
     }
-    
 }
 
 //BUSCAR USUARIOS POR ID
