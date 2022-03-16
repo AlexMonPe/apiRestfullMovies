@@ -1,24 +1,42 @@
 import jwt from 'jsonwebtoken';
+import Users from '../users/modelUsers.js';
 
 // Middleware that give you a token giving email and password
-const auth = (req,res,/*next*/) => {
-  const token = jwt.sign({email: req.headers.email, password: req.headers.password }, 'secretkey')
-  console.log(token)
-  res.json(token) // return the generated token
-  //next(token);
+const autentication = async (req, res, next) => {
+  try {
+    let userFound = await Users.findOne({
+        email: req.headers.email,
+        password: req.headers.password,
+      });
+    if (!userFound) {
+      res.status(404).send("Email or password is wrong");
+    } else {
+      const token = jwt.sign({email: req.headers.email, password: req.headers.password, role: req.body.role }, 'secretkey')
+      res.json('Este es tu token: ' + token)
+    }
+  }catch (error) {
+    res.status(401).json(error)
+  } 
 }
 
-// Middleware that decode your token for contrart the email and password are right!
-const checkJwt = (req,res,next) => {
-  let tokenToCheck = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZXhAYXBpLmNvbSIsInBhc3N3b3JkIjoiYWxleCIsImlhdCI6MTY0NzM2Mzc1Nn0.2GF6OMQz3mHN2nPk3awdCJPy7g5Pq3lDW2ntAi4GlD4";
-  console.log(req.headers.email, 'req mail en checkjwt')
-  console.log(req.headers.password, 'req password en checkjwt')
-  
-  const decoded = jwt.verify(tokenToCheck, 'secretkey')
-
-  res.json(decoded)
+// Middleware that decode your token for contrast the token that you have is right!
+const checkToken = (roleToCheck) => {
+  return (req,res,next) => {
+    try {
+      const userVerified = jwt.verify(req.headers.token, 'secretkey')
+      if (userVerified.role == roleToCheck){
+      next();
+      }else {
+        res.status(403).send("You don\'t have this credentials" )
+      }
+      
+    } catch (error){
+      res.status(401).json(error)
+    }
+  }
 }
-export {auth, checkJwt};
+
+export {autentication, checkToken};
 
 
 // const autentication = async (req,res,next) => {

@@ -3,7 +3,6 @@ import routerMovies from "./movies/routerMovies.js";
 import routerUsers from "./users/routerUsers.js"
 import connection from "./config/BD.js";
 import morgan from "morgan";
-import {auth, checkJwt} from "./config/middlewares.js";
 import logger from "./lib/winston.js";
 
 
@@ -20,13 +19,6 @@ app.use(express.json());
 // Morgan to show logs
 app.use(morgan('combined', { stream: logger.stream }));
 
-
-app.use("/", (req,res) => res.send('welcome') )
-
-
-
-// Endpoint for autentication
-//app.use('/auth', checkJwt)
 
 // Routes defined
 app.use('/movies', routerMovies);
