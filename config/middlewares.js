@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import Users from '../users/modelUsers.js';
 
-//MIDDLEWARE THAT GIVES YOU A TOKEN IF GIVE THIS USER PARAMETERS IN HEADERS
+//MIDDLEWARE THAT GIVES YOU A TOKEN IF WRITE USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {
   try {
     let userFound = await Users.findOne({
@@ -19,9 +19,6 @@ const createToken = async (req, res, next) => {
     res.status(401).json(error)
   }
 }
-
-//conseguir pasar un array de parametros y comprobar si cualquiera de esos roles coincide.
-
 
 // Middleware that decode your token for contrast the token that you have is right!
 const autentication = (rolesToCheck = null) => {
