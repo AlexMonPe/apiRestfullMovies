@@ -1,20 +1,21 @@
 import express from "express"
+import { autentication } from "../config/middlewares.js";
 const router = express.Router();
 import {getMoviebyId, getMovie, postMovie, deleteMovie, updateMovie} from "./controllerMovies.js"
 
 // GET BY ID WITH PATH PARAMS
-router.get('/:id', getMoviebyId);
+router.get('/:id', autentication(["administrator","client"]), getMoviebyId); // ADMINISTRATORS AND CLIENTS CAN GET A MOVIE BYID
+
 //GET FILTERING BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
-router.get('/' , getMovie)
+router.get('/', getMovie)// ALL CAN READ MOVIES
 
 //POST NEW MOVIES
-router.post('/', postMovie);
-//PATCH QUE MODIFICA LA KEY NAME COMPARANDO EL ID EN EL ENDPOINT Y DE LOS OBJETOS
+router.post('/', autentication(["administrator", "client"]), postMovie); // ADMINISTRATORS AND CLIENTS CAN CREATE A MOVIE
 
 // DELETE MOVIES
-router.delete('/:id', deleteMovie);
+router.delete('/:id', autentication(["administrator"]), deleteMovie); //ONLY ADMINISTRATOR CAN DELETE MOVIES
 
 // UPDATE/PATCH A MOVIE
-router.patch('/:id', updateMovie);
+router.patch('/:id',autentication(["administrator"]), updateMovie); //ONLY ADMINISTRATOR CAN UPDATE MOVIES
 
 export default router;

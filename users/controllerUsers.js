@@ -1,7 +1,7 @@
 
 import Users from "./modelUsers.js"
 
-//POST NEW USERS
+//OTHER METHOD TO POST NEW USERS
 // const postUser = async (req,res) => { 
 //     console.log(req.body)
 //     const User = new Users(req.body);

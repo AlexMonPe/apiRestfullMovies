@@ -1,24 +1,24 @@
 import express from "express";
 const router = express.Router();
 import {getUser, getUserById, postUser, deleteUser, updateUser} from "./controllerUsers.js"
-import {autentication, checkToken} from "../config/middlewares.js"
+import {autentication, createToken} from "../config/middlewares.js"
 
 // //GET USER BY NAME/ID
-router.get('/', checkToken(), getUser)
+router.get('/', autentication(), getUser) // ONLY REGISTERED USERS CAN GET USERS
 
 //GET USERS BY ID
-router.get('/:id', getUserById)
+router.get('/:id', autentication(), getUserById) // ONLY REGISTERED USERS CAN GET USERS BY ID
 
 //POST NEW USER
-router.post('/', postUser)
+router.post('/', postUser) // ALL CAN CREATE A USER
 
 //DELETE USER BY ID
-router.delete('/:id', checkToken("administrator"), deleteUser)
+router.delete('/:id', autentication("administrator"), deleteUser) // ONLY ADMININISTRATOR CAN DELETE USERS
 
 //PATCH USER
-router.patch('/:id', checkToken("administrator"), updateUser);
+router.patch('/:id', autentication("administrator"), updateUser); // ONLY ADMINISTRATOR CAN UPDATE USERS
 
-// Endpoint for autentication
-router.post('/auth', autentication)
+// ENDPOINT TO AUTENTICATE AND TO CREATE A TOKEN
+router.post('/auth', createToken) // ALL CAN ENTER IN THIS ENDPOINT AND TAKE A TOKEN
 
 export default router;
