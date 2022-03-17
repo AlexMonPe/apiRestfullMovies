@@ -1,30 +1,32 @@
 import express from "express";
-import routerMovies from "./movies/routerMovies.js";
-import routerUsers from "./users/routerUsers.js";
-import routerRent from "./rent/routerRent.js";
-import connection from "./config/BD.js";
-import morgan from "morgan";
+import routerMovies from "./movies/routerMovies.js"; //MOVIES ROUTERS
+import routerUsers from "./users/routerUsers.js"; // USERS ROUTERS
+import routerRent from "./rent/routerRent.js"; // RENT ROUTERS
+import connection from "./config/BD.js"; // CONNECTION OF DB
+import morgan from "morgan"; 
 import logger from "./lib/winston.js";
+import env from "dotenv";
 
+// ENVIRONMENT VARS
+env.config();
 
-const app = express()
-
-// Connection DB
+// CONNECTION DB
 connection();
-// How to server up in express
-app.listen(3003,()=> console.info('Server Up at port 3003'));
+const app = express()
+// HOW TO SERVER UP IN EXPRESS
+app.listen(process.env.SERVER_PORT,()=> console.info('Server Up at port 3003'));
 
 
-// Parse body contents to JSON that can interpretate it.
+// PARSE BODY TO JSON TO INTERPRETATE IT
 app.use(express.json());
-// Morgan to show logs
+// MORGAN TO SHOW LOGS
 app.use(morgan('combined', { stream: logger.stream }));
 
 
-// Routes defined
-app.use('/movies', routerMovies);
-app.use('/users', routerUsers);
-app.use('/rent', routerRent)
-//app.use('/auth', checkjwt);
+// ENDPOINTS
+app.use('/movies', routerMovies); //ENDPOINT OF MOVIES
+app.use('/users', routerUsers); //ENDPOINT OF USERS
+app.use('/rent', routerRent); // ENDPOINT OF RENT
+
 
 

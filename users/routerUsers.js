@@ -7,7 +7,7 @@ import {autentication, checkToken} from "../config/middlewares.js"
 router.get('/', getUser)
 
 //GET USERS BY ID
-router.get('/:id',getUserById)
+router.get('/:id', getUserById)
 
 //POST NEW USER
 router.post('/', postUser)
