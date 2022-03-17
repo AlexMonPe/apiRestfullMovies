@@ -20,14 +20,17 @@ const autentication = async (req, res, next) => {
   } 
 }
 
+//conseguir pasar un array de parametros y comprobar si cualquiera de esos roles coincide.
+
+
 // Middleware that decode your token for contrast the token that you have is right!
-const checkToken = (roleToCheck) => {
+const checkToken = (rolesToCheck = null) => {
   return (req,res,next) => {
     try {
       const userDecoded = jwt.verify(req.headers.token, process.env.SECRET_KEY)
-      if (userDecoded.role == roleToCheck){
-      next();
-      }else {
+      if (rolesToCheck == null || rolesToCheck.find((e)=> e === userDecoded.role)){
+        next();
+      }else{
         res.status(403).send("You don\'t have this credentials" )
       }
     } catch (error){
