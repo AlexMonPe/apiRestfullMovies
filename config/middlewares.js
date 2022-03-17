@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import Users from '../users/modelUsers.js';
+import Users from '../src/users/modelUsers.js';
 
 //MIDDLEWARE THAT GIVES YOU A TOKEN IF WRITE USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {

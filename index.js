@@ -1,10 +1,10 @@
 import express from "express";
-import routerMovies from "./movies/routerMovies.js"; //MOVIES ROUTERS
-import routerUsers from "./users/routerUsers.js"; // USERS ROUTERS
-import routerRent from "./rent/routerRent.js"; // RENT ROUTERS
+import routerMovies from "./src/movies/routerMovies.js"; //MOVIES ROUTERS
+import routerUsers from "./src/users/routerUsers.js"; // USERS ROUTERS
+import routerRent from "./src/rent/routerRent.js"; // RENT ROUTERS
 import connection from "./config/BD.js"; // CONNECTION OF DB
 import morgan from "morgan"; 
-import logger from "./lib/winston.js";
+import logger from "./src/lib/winston.js";
 import env from "dotenv";
 
 // ENVIRONMENT VARS

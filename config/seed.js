@@ -1,4 +1,4 @@
-import Rent from "../rent/modelRent.js";
+import Rent from "../src/rent/modelRent.js";
 import connection from "./BD.js";
 
 connection();
