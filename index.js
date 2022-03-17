@@ -1,6 +1,7 @@
 import express from "express";
 import routerMovies from "./movies/routerMovies.js";
-import routerUsers from "./users/routerUsers.js"
+import routerUsers from "./users/routerUsers.js";
+import routerRent from "./rent/routerRent.js";
 import connection from "./config/BD.js";
 import morgan from "morgan";
 import logger from "./lib/winston.js";
@@ -23,6 +24,7 @@ app.use(morgan('combined', { stream: logger.stream }));
 // Routes defined
 app.use('/movies', routerMovies);
 app.use('/users', routerUsers);
+app.use('/rent', routerRent)
 //app.use('/auth', checkjwt);
 
 

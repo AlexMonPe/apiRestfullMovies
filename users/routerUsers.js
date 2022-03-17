@@ -4,7 +4,7 @@ import {getUser, getUserById, postUser, deleteUser, updateUser} from "./controll
 import {autentication, checkToken} from "../config/middlewares.js"
 
 // //GET USER BY NAME/ID
-router.get('/', checkToken("client"), getUser)
+router.get('/', checkToken("administrator"), getUser)
 
 //GET USERS BY ID
 router.get('/:id', checkToken("administrator"),getUserById)

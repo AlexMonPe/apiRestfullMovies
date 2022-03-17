@@ -11,9 +11,6 @@ import Users from "./modelUsers.js"
 // ANOTHER METHOD TO CREATE USERS
  
 const postUser = async (req,res,next) => {
-        console.log(req.body)
-        console.log(req.body.email)
-        console.log(req.body.password)
     try{
         const userToCreate = {
             //...req.body, // take the rest of the object of req.body
@@ -56,7 +53,6 @@ const getUser = async (req,res) => {
     }
 }
     
-
 // DELETE USER BY ID
 const deleteUser = async (req,res) => {
     try{

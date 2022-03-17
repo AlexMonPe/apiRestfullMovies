@@ -21,7 +21,7 @@ const autentication = async (req, res, next) => {
 }
 
 // Middleware that decode your token for contrast the token that you have is right!
-const checkToken = (roleToCheck = "administrator") => {
+const checkToken = (roleToCheck) => {
   return (req,res,next) => {
     try {
       const userDecoded = jwt.verify(req.headers.token, 'secretkey')
