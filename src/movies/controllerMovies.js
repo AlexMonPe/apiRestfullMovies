@@ -4,7 +4,7 @@ import Movies from "./modelMovies.js"
 
 // POST NEW MOVIES
 const postMovie = async (req,res) => { 
-    try{
+    try {
         const Movie = new Movies(req.body);
         await Movie.save();
         res.json(Movie)
@@ -16,7 +16,7 @@ const postMovie = async (req,res) => {
 // const postMovie = async (req,res) => {
 //     const movieCreated = await Movies.create(req.body);
 //     res.status(200).json(movieCreated)
-// }
+//}
 
 //GET BY ID
 const getMoviebyId = async (req,res) => {
@@ -25,30 +25,27 @@ const getMoviebyId = async (req,res) => {
     }catch(error){
         res.json(error)
     }  
-    
 }
 
 //GET FILTER BY ALL KEYS AND RETURN ALL sS IF KEY NO EXISTS
 const getMovie = async (req,res) => {
     try{
-        if(req.query.title){
-            res.json(await Movies.find({title: req.query.title}))
-        }else if (req.query.genre){
-            res.json(await Movies.find({genre: req.query.genre}))
-        }else if (req.query.actor){
-            res.json(await Movies.find({actor: req.query.actor}))
-        } else if (req.query.year){
-            res.json(await Movies.find({year: req.query.year}))
-        }else if (req.query.duration){
-            res.json(await Movies.find({duration: req.query.duration}))
+        if(req.query){
+        const query = await Movies.find({ $or: [
+            {title: req.query.title},
+            {genre: req.query.genre},
+            {actor: req.query.actor},
+            {year: req.query.year},
+            {duration: req.query.duration}
+        ]})
+        res.json(query)
         }else {
-            res.json(await Movies.find({}))
+            res.json(await Movies.find({}));
         }
     }catch(error){
         res.json(error)
     }
 }
-
 // DELETE MOVIE
 
 const deleteMovie = async (req,res) => {
@@ -70,4 +67,4 @@ const updateMovie = async (req,res) => {
     }
 }
 
-export {postMovie, getMovie, getMoviebyId,deleteMovie, updateMovie};
+export {postMovie, getMoviebyId , getMovie , deleteMovie , updateMovie};

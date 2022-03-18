@@ -1,7 +1,7 @@
 import express from "express"
 import { autentication } from "../../config/middlewares.js";
 const router = express.Router();
-import {getMoviebyId, getMovie, postMovie, deleteMovie, updateMovie} from "./controllerMovies.js"
+import { getMoviebyId, getMovie, postMovie, deleteMovie, updateMovie } from "./controllerMovies.js"
 
 // GET BY ID WITH PATH PARAMS
 router.get('/:id', autentication(["administrator","client"]), getMoviebyId); // ADMINISTRATORS AND CLIENTS CAN GET A MOVIE BYID
