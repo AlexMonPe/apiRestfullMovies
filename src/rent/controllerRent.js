@@ -10,7 +10,7 @@ const getRentById = async (req,res) => {
     res.json(await Rent.find({_id: req.params.id }).populate(["idMovie", "idUser"]))
 }
 const postRent = async (req,res) => {
-    console.log(req.body.idMovie)
+    
     const rentToCreate = {
         idMovie: req.body.idMovie,
         idUser: req.body.idUser,
@@ -18,6 +18,8 @@ const postRent = async (req,res) => {
     }
     try{
         const postedRent = await Rent.create(rentToCreate)
+        console.log('hellooooooooooooooooooo')
+        console.log({idUser})
         res.status(201).json(await postedRent.populate(["idMovie", "idUser"]))
     }catch(error){
         res.json(error)
@@ -46,4 +48,4 @@ const updateRent = async (req,res) => {
     }
 }
 
-export { getRent,postRent, updateRent, deleteRent, getRentById };
+export { getRent, postRent, updateRent, deleteRent, getRentById };
