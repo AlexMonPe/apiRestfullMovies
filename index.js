@@ -30,7 +30,7 @@ app.set("port", process.env.PORT || 5000);
 
 // HOW TO SERVER UP IN EXPRESS
 app.listen(app.get("port"), () => { 
-    console.log("Server up at " + process.env.SERVER_POST)
+    console.log("Server up at " + process.env.SERVER_PORT)
 })
 
 
