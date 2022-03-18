@@ -9,16 +9,20 @@ import env from "dotenv";
 
 // ENVIRONMENT VARS
 env.config();
+app.set("PORT", process.env.PORT || 5000);
+
 
 // CONNECTION DB
 connection();
 const app = express()
 // HOW TO SERVER UP IN EXPRESS
-app.listen(process.env.SERVER_PORT,()=> console.info('Server Up at port 3003'));
+app.listen(app.get("port"), () => { 
+    console.log("Server up at " + process.env.SERVER_POST)
+})
 
 
 // PARSE BODY TO JSON TO INTERPRETATE IT
-app.use(express.json());
+app.use(express.json())
 // MORGAN TO SHOW LOGS
 app.use(morgan('combined', { stream: logger.stream }));
 
