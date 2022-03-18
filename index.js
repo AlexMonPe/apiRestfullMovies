@@ -9,12 +9,14 @@ import env from "dotenv";
 
 // ENVIRONMENT VARS
 env.config();
-app.set("PORT", process.env.PORT || 5000);
-
 
 // CONNECTION DB
 connection();
 const app = express()
+
+app.set("PORT", process.env.PORT || 5000);
+
+
 // HOW TO SERVER UP IN EXPRESS
 app.listen(app.get("port"), () => { 
     console.log("Server up at " + process.env.SERVER_POST)
