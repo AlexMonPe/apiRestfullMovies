@@ -6,13 +6,14 @@ import connection from "./config/BD.js"; // CONNECTION OF DB
 import morgan from "morgan"; 
 import logger from "./src/lib/winston.js";
 import env from "dotenv";
+const app = express()
 
 // ENVIRONMENT VARS
 env.config();
 
 // CONNECTION DB
 connection();
-const app = express()
+
 
 app.set("PORT", process.env.PORT || 5000);
 
