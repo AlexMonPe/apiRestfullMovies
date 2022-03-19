@@ -10,7 +10,6 @@ const mockRent = [{idMovie: "62331bfe92e3e46d1ae3aa27", idUser: "6232ee8dd2243c9
 
 await Rent.insertMany(mockRent);
 
-
 const mockMovies = [
     {"title": "intocable","year": 2011,"genre": "comedia","actor": "omar sy","duration": 109},
     {"title": "gladiator","year": 2000,"genre": "accion","actor": "russell crowe","duration": 150},
@@ -21,11 +20,11 @@ const mockMovies = [
 await Movies.insertMany(mockMovies);
 
 const mockUsers = [
-    {"name": "alex","mail": "alex@api.com","rol": "administrator"},
-    {"name": "pablo","mail": "pablo@api.com","rol": "administrator"},
-    {"name": "mihai","mail": "mihai@api.com","rol": "client"},
-    {"name": "david","mail": "david@api.com","rol": "client"},
-    {"name": "susana","mail": "susana@api.com","rol": "client"}
+    {"name": "alex","email": "alex@api.com","role": "administrator"},
+    {"name": "pablo","email": "pablo@api.com","role": "administrator"},
+    {"name": "mihai","email": "mihai@api.com","role": "client"},
+    {"name": "david","email": "david@api.com","role": "client"},
+    {"name": "susana","email": "susana@api.com","role": "client"}
 ]
 
 await Users.insertMany(mockUsers)

@@ -1,6 +1,8 @@
 
 import Users from "./modelUsers.js"
 
+//CRUD USERS
+
 //OTHER METHOD TO POST NEW USERS
 // const postUser = async (req,res) => { 
 //     console.log(req.body)
@@ -39,15 +41,15 @@ const getUserById = async (req, res) => {ç
 //GET FILTER BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
 const getUser = async (req,res) => {
     try {
-        const query = await Users.find({ $or: [
+        const queryUser = await Users.find({ $or: [
             {name: req.query.name},
-            {mail: req.query.mail},
-            {rol: req.query.rol},
+            {email: req.query.email},
+            {role: req.query.role},
         ]})
         if(!req.query){
                 res.json(await Users.find({}));
             }else {
-               res.json(query)
+               res.json(queryUser)
             }
     } catch(error){
         res.json(error)

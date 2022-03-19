@@ -1,5 +1,0 @@
-{"_id": "622a409da275460dcace6918","name": "alex","mail": "alex@api.com","rol": "administrator"},
-{"_id": "622a409da275460dcace691b","name": "pablo","mail": "pablo@api.com","rol": "administrator"},
-{"_id": "622a409da275460dcace691e","name": "mihai","mail": "mihai@api.com","rol": "client"},
-{"_id": "622a409da275460dcace6921","name": "david","mail": "david@api.com","rol": "client"},
-{"_id": "622a409da275460dcace6924","name": "susana","mail": "susana@api.com","rol": "client"}

@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 import Users from '../src/users/modelUsers.js';
+import env from 'dotenv'
+env.config();
 
 //MIDDLEWARE THAT GIVES YOU A TOKEN IF WRITE USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {
