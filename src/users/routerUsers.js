@@ -4,8 +4,7 @@ import {getUser, getUserById, postUser, deleteUser, updateUser} from "./controll
 import {autentication, createToken} from "../../config/middlewares.js"
 
 // //GET USER BY NAME/ID
-router.get('/', 
- getUser) // ONLY REGISTERED USERS CAN GET USERS
+router.get('/', getUser) // ONLY REGISTERED USERS CAN GET USERS
 
 //GET USERS BY ID
 router.get('/:id', autentication(), getUserById) // ONLY REGISTERED USERS CAN GET USERS BY ID

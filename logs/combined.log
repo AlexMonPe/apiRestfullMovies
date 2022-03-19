@@ -15,3 +15,4 @@
 {"level":"info","message":"::1 - - [18/Mar/2022:18:08:22 +0000] \"GET /movies HTTP/1.1\" 200 496 \"-\" \"PostmanRuntime/7.29.0\"\n","timestamp":"2022-03-18T18:08:22.668Z"}
 {"level":"info","message":"::1 - - [18/Mar/2022:18:12:24 +0000] \"GET /movies HTTP/1.1\" 200 496 \"-\" \"PostmanRuntime/7.29.0\"\n","timestamp":"2022-03-18T18:12:24.982Z"}
 {"level":"info","message":"::1 - - [18/Mar/2022:18:16:29 +0000] \"GET /movies HTTP/1.1\" 200 496 \"-\" \"PostmanRuntime/7.29.0\"\n","timestamp":"2022-03-18T18:16:29.089Z"}
+{"level":"info","message":"::1 - - [19/Mar/2022:10:48:18 +0000] \"POST /movies HTTP/1.1\" 200 93 \"-\" \"PostmanRuntime/7.29.0\"\n","timestamp":"2022-03-19T10:48:18.238Z"}

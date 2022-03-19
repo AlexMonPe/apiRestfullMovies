@@ -16,6 +16,6 @@ router.post('/', autentication(["administrator", "client"]), postMovie); // ADMI
 router.delete('/:id', autentication(["administrator"]), deleteMovie); //ONLY ADMINISTRATOR CAN DELETE MOVIES
 
 // UPDATE/PATCH A MOVIE
-router.patch('/:id',autentication(["administrator"]), updateMovie); //ONLY ADMINISTRATOR CAN UPDATE MOVIES
+router.patch('/:id', autentication(["administrator"]), updateMovie); //ONLY ADMINISTRATOR CAN UPDATE MOVIES
 
 export default router;

@@ -39,15 +39,16 @@ const getUserById = async (req, res) => {ç
 //GET FILTER BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
 const getUser = async (req,res) => {
     try {
-        if (req.query.name){
-            res.json(await Users.find({name: req.query.name}))
-        }else if (req.query.mail){
-            res.json(await Users.find({mail: req.query.mail}))
-        }else if (req.query.rol){
-            res.json(await Users.find({rol: req.query.rol}))
-        }else {
-            res.json(await Users.find({}))
-        }
+        const query = await Users.find({ $or: [
+            {name: req.query.name},
+            {mail: req.query.mail},
+            {rol: req.query.rol},
+        ]})
+        if(!req.query){
+                res.json(await Users.find({}));
+            }else {
+               res.json(query)
+            }
     } catch(error){
         res.json(error)
     }
