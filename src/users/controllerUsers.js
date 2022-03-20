@@ -15,11 +15,10 @@ import Users from "./modelUsers.js"
 const postUser = async (req,res,next) => {
     try{
         const userToCreate = {
-            //...req.body, // take the rest of the object of req.body
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
-            role: "client",
+            role: req.body.role
         }
         const userCreated = await Users.create(userToCreate);
         console.log(userCreated)
@@ -30,7 +29,7 @@ const postUser = async (req,res,next) => {
 }
 
 //BUSCAR USUARIOS POR ID
-const getUserById = async (req, res) => {ç
+const getUserById = async (req, res) => {
     try{
         res.json(await Users.find({_id: req.params.id}))
     }catch(error){
@@ -41,17 +40,12 @@ const getUserById = async (req, res) => {ç
 //GET FILTER BY ALL KEYS AND RETURN ALL MOVIES IF KEY NO EXISTS
 const getUser = async (req,res) => {
     try {
-        const queryUser = await Users.find({ $or: [
-            {name: req.query.name},
-            {email: req.query.email},
-            {role: req.query.role},
-        ]})
-        if(!req.query){
-                res.json(await Users.find({}));
-            }else {
-               res.json(queryUser)
-            }
-    } catch(error){
+        const queryUser = {};
+        if (req.query.name) queryUser.name = req.query.name;
+        if (req.query.email) queryUser.email = req.query.email;
+        if (req.query.role) queryUser.role = req.query.role;
+        res.json(await Users.find(queryUser))    
+    }catch(error){
         res.json(error)
     }
 }

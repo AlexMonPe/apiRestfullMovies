@@ -27,22 +27,20 @@ const getMoviebyId = async (req,res) => {
     }  
 }
 
-//GET FILTER BY ALL KEYS AND RETURN ALL sS IF KEY NO EXISTS
+//GET FILTER BY ALL KEYS AND RETURN ALL IF KEY doesn't EXISTS
 const getMovie = async (req,res) => {
     try{
-        const queryMovie = await Movies.find({ $or: [
-            {title: req.query.title},
-            {genre: req.query.genre},
-            {actor: req.query.actor},
-            {year: req.query.year},
-            {duration: req.query.duration}
-        ]})
-        if(!req.query){
-            res.json(await Movies.find({}));
-        }else {
-            res.json(queryMovie)
+            const queryMovie = {};
+
+            if(req.query.title) queryMovie.title = req.query.title
+            if(req.query.genre) queryMovie.genre = req.query.genre
+            if(req.query.actor) queryMovie.actor = req.query.actor
+            if(req.query.year) queryMovie.year = req.query.year 
+            if(req.query.duration) queryMovie.duration = req.query.duration
+            console.log(req.query.duration)
+            res.json(await Movies.find(queryMovie))
         }
-    }catch(error){
+    catch(error){
         res.json(error)
     }
 }

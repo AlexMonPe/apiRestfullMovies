@@ -3,7 +3,7 @@ import Users from '../src/users/modelUsers.js';
 import env from 'dotenv'
 env.config();
 
-//MIDDLEWARE THAT GIVES YOU A TOKEN IF WRITE USER PARAMETERS IN HEADERS
+//MIDDLEWARE THAT GIVES YOU A TOKEN IF GIVEN USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {
   try {
     let userFound = await Users.findOne({
@@ -22,7 +22,7 @@ const createToken = async (req, res, next) => {
   }
 }
 
-// Middleware that decode your token for contrast the token that you have is right!
+// Middleware that decode your token and check if is right!
 const autentication = (rolesToCheck = null) => {
   return (req,res,next) => {
     try {
