@@ -1,24 +1,44 @@
 import jwt from 'jsonwebtoken';
 import Users from '../src/users/modelUsers.js';
 import env from 'dotenv'
+import bcrypt from 'bcrypt'
+
+
+
 env.config();
+
+const hashPsswd = async (password) => {
+  const hashedPwd = await bcrypt.hash(password, 10)
+  console.log(hashedPwd)
+  return hashedPwd
+}
+const compareHash = async (password, pwdhashed) => {
+  try{
+    return await bcrypt.compare(password, pwdhashed)
+    }catch(error){
+      console.log('Password needed', error)
+    }
+  }
+
+
 
 //MIDDLEWARE THAT GIVES YOU A TOKEN IF GIVEN USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {
   try {
     let userFound = await Users.findOne({
-        email: req.headers.email,
-        password: req.headers.password,
-        role: req.headers.role,
+        email: req.headers.email
       });
-    if (!userFound) {
-      res.status(404).send("Email, password or role are wrong");
-    } else {
+      console.log(userFound.password, ' hashed pwd')
+    if (await compareHash(req.headers.password, userFound.password)) {
+      console.log(userFound)
       const token = jwt.sign({email: req.headers.email, password: req.headers.password, role: req.headers.role }, process.env.SECRET_KEY)
       res.json('This is your token: ' + token)
+    } else {
+      res.status(404).send("Email, password or role are wrong");
     }
   }catch (error) {
-    res.status(401).json(error)
+    console.log(error)
+    res.status(401).send(error)
   }
 }
 
@@ -38,4 +58,4 @@ const autentication = (rolesToCheck = null) => {
   }
 }
 
-export {autentication, createToken};
+export {autentication, createToken, hashPsswd};

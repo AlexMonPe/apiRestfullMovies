@@ -37,7 +37,6 @@ const getMovie = async (req,res) => {
             if(req.query.actor) queryMovie.actor = req.query.actor
             if(req.query.year) queryMovie.year = req.query.year 
             if(req.query.duration) queryMovie.duration = req.query.duration
-            console.log(req.query.duration)
             res.json(await Movies.find(queryMovie))
         }
     catch(error){

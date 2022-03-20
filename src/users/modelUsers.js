@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 // Schema: Data structure of collection Users
 const Schema = new mongoose.Schema({
     name: String,

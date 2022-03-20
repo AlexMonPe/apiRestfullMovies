@@ -6,6 +6,7 @@ import connection from "./BD.js";
 //DB CONNECTION
 connection();
 
+//FAKE EXAMPLE OF MOCKRENT, THIS IDS ONLY EXISTS IN MY BD.
 const mockRent = [{idMovie: "62331bfe92e3e46d1ae3aa27", idUser: "6232ee8dd2243c99605d3275"}]
 
 await Rent.insertMany(mockRent);
@@ -20,11 +21,11 @@ const mockMovies = [
 await Movies.insertMany(mockMovies);
 
 const mockUsers = [
-    {"name": "alex","email": "alex@api.com","role": "administrator"},
-    {"name": "pablo","email": "pablo@api.com","role": "administrator"},
-    {"name": "mihai","email": "mihai@api.com","role": "client"},
-    {"name": "david","email": "david@api.com","role": "client"},
-    {"name": "susana","email": "susana@api.com","role": "client"}
+    {"name": "alex","email": "alex@api.com","password": "alex", "role": "administrator"},
+    {"name": "pablo","email": "pablo@api.com","password": "pablo","role": "administrator"},
+    {"name": "mihai","email": "mihai@api.com","password": "mihai","role": "client"},
+    {"name": "david","email": "david@api.com","password": "david","role": "client"},
+    {"name": "susana","email": "susana@api.com","password": "susana","role": "client"}
 ]
 
 await Users.insertMany(mockUsers)

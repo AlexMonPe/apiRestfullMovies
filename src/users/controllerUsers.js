@@ -1,4 +1,4 @@
-
+import { hashPsswd } from "../../config/middlewares.js";
 import Users from "./modelUsers.js"
 
 //CRUD USERS
@@ -17,11 +17,10 @@ const postUser = async (req,res,next) => {
         const userToCreate = {
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: await hashPsswd(req.body.password),
             role: req.body.role
         }
         const userCreated = await Users.create(userToCreate);
-        console.log(userCreated)
         res.status(200).json(userCreated)
     }catch(error){
         res.json(error)
