@@ -17,6 +17,7 @@ await connection();
 app.use(express.json())
 
 // ENDPOINTS
+app.get('/', (req,res)=> res.send('Welcome to my API, read the documentation to start'))
 app.use('/movies', routerMovies); //ENDPOINT OF MOVIES
 app.use('/users', routerUsers); //ENDPOINT OF USERS
 app.use('/rent', routerRent); // ENDPOINT OF RENT
