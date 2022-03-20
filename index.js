@@ -16,8 +16,9 @@ await connection();
 // PARSE BODY TO JSON TO INTERPRETATE IT
 app.use(express.json())
 
+const myGithub = "https://github.com/AlexMonPe/apiRestfullMovies"
 // ENDPOINTS
-app.get('/', (req,res)=> res.send('Welcome to my API, read the documentation to start'))
+app.get('/', (req,res)=> res.send('Welcome to my API, read' + documentation.link(myGithub) + ' to start'))
 app.use('/movies', routerMovies); //ENDPOINT OF MOVIES
 app.use('/users', routerUsers); //ENDPOINT OF USERS
 app.use('/rent', routerRent); // ENDPOINT OF RENT
