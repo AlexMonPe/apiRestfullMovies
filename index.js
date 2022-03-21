@@ -5,7 +5,7 @@ import routerRent from "./src/rent/routerRent.js"; // RENT ROUTERS
 import connection from "./config/BD.js"; // CONNECTION OF DB
 import env from "dotenv";
 
-const app = express()
+const app = express();
 
 // ENVIRONMENT VARS
 env.config();
