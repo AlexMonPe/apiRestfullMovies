@@ -40,15 +40,33 @@ Se han definido los siguientes endpoints dónde los usuarios pueden acceder para
 
 El primer paso para consumir el api es entrar en /users/auth para crear un usuario, los campos a introducir en el headers son {name, email, password}, en el caso de no poner una clave adicional de role, se le asignara por defecto el role de 'Client'. Si no se introducen esas claves, no conseguirás crear dicho usuario, en caso contrario, el sistema te dará un token con el que podrás utilizar la mayoría de funcionalidades de el API, ya que para consumirlo es indispensable estar registrado e ir poniendo el token en el header para consultar más endpoints. En la creación de usuario el valor de password por seguridad se hasheará automáticamente.
 En el endpoint de /users tiene la siguiente casuística:
-  - GET users es el único endpoint junto con post de users que no es necesario el registro previo.
-  - GET by Id es necesario estar registrado.
-  - DELETE y PATCH exige tener role 'administrator', que se verificará mediante el token.
+  - GET users es el único endpoint junto con post de users que no es necesario el registro previo. Se puede filtrar Users por cualquier clave poniendo query params en el URI, por ejemplo: https://api-restfull-movies-nodejs.herokuapp.com/Users?name=alex
+<br>La nomenclatura del objeto JSON para que sirva de ejemplo para el post es:
+        <br>{<br>
+        "id": "1238743975", <br>
+        "name": "[yourname]",<br>
+        "email": "[name@domain.com]",<br>
+        "password": "[password]"<br>
+        }<br>
+  Hay que tener en cuenta que tanto el id como el role, se genera automáticamente.
+  - GET by Id es necesario estar registrado, es necesario introducir en la uri el ID User como path.params a buscar. Ejemplo : https://api-restfull-movies-nodejs.herokuapp.com/Users/1238743975 <-- Id user.
+  - DELETE y PATCH exige tener role 'administrator', que se verificará mediante el token. Para hacer DELETE es necesario introducir el id del user a eliminar en la uri como path params y con PATCH requiere poner en el body cualquiera de las clave: valor que desees modificar junto con el ID del user a modificar en la uri como path params.
 Endpoint  /movies:
-  - GET Movies se puede consultar sin estar registrado
-  - GET by id y POST solo requiere estar registrado y añadir el id en el path param de la uri.
-  - DELETE y PATCH requiere ser administrador.
+Nomenclatura JSON de una Movie:<br> 
+  {<br>
+        "id": "5345435534"<br>
+        "title": "intocable",<br>
+        "year": 2011,<br>
+        "genre": "comedia",<br>
+        "actor": "omar sy",<br>
+        "duration": 109<br>
+    }<br>
+  Al igual que en otras entidades, el id se genera automáticamente
+  - GET Movies se puede consultar sin estar registrado, se puede filtrar por cualquiera de las claves en query params, se puede filtrar por más claves, pero el filtrado es por AND y devolverá las Movies que cumplan todas las condiciones. Ejemplo: https://api-restfull-movies-nodejs.herokuapp.com/movies?title=intocable&year=2011
+  - GET by id y POST solo requiere estar registrado y añadir el id en el path param de la uri. Ejemplo: https://api-restfull-movies-nodejs.herokuapp.com/movies/5345435534 <-- Id Movie como path param.
+  - DELETE y PATCH requiere ser administrador, y como en users, para el DELETE es necesario añadir el id de la movie como path params, y para PATCH introducir una o varias clave: valor que quieras modificar en el body.
 Endpoint /rents:
-  - Por motivos formativos y de aprendizaje de momento están todos las peticiones permitidas sin necesidad de estar registrado, para que sea más liviano testearlos manualmente, muy posiblemente se cambie en el futuro. En el POST al crear un alquiler es obligatorio introducir un idMovie y un idUser para generar el alquiler, por defecto se añade la fecha de la creación del alquiler, salvo que indiques en el body una especifica, como por ejemplo el día de devolución. Con .populate conseguimos mostrar en un GET de rent o en el POST de rent que nos devuelva el objeto y usuario completo para poder visualizar de manera más cómoda el alquiler de la película y el usuario que la ha alquilado.
+  - Por motivos formativos y de aprendizaje de momento están todos las peticiones permitidas sin necesidad de estar registrado, para que sea más liviano testearlos manualmente, muy posiblemente se cambie en el futuro. En el POST al crear un alquiler es obligatorio introducir un idMovie y un idUser ya existentes para generar el alquiler, por defecto se añade la fecha de la creación del alquiler, salvo que indiques en el body una especifica, como por ejemplo el día de devolución. Con .populate conseguimos mostrar en un GET de rent o en el POST de rent que nos devuelva el objeto y usuario completo para poder visualizar de manera más cómoda el alquiler de la película y el usuario que la ha alquilado.
 
 El proyecto se ha publicado en HEROKU: https://api-restfull-movies-nodejs.herokuapp.com/
 
