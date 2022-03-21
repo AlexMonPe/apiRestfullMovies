@@ -28,10 +28,10 @@ const createToken = async (req, res, next) => {
     let userFound = await Users.findOne({
         email: req.headers.email
       });
-      console.log(userFound.password, ' hashed pwd')
+      //console.log(userFound.password, ' hashed pwd')
     if (await compareHash(req.headers.password, userFound.password)) {
       console.log(userFound)
-      const token = jwt.sign({email: req.headers.email, password: req.headers.password, role: req.headers.role }, process.env.SECRET_KEY)
+      const token = jwt.sign({email: req.headers.email, password: req.headers.password, role: userFound.role }, process.env.SECRET_KEY)
       userFound.token = token
       res.json('This is your token: ' + token)
     } else {
