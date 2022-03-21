@@ -13,9 +13,9 @@ router.get('/', getMovie)// ALL CAN READ MOVIES
 router.post('/', autentication(["administrator", "client"]), postMovie); // ADMINISTRATORS AND CLIENTS CAN CREATE A MOVIE
 
 // DELETE MOVIES
-router.delete('/:id',autentication("administrator"), deleteMovie); //ONLY ADMINISTRATOR CAN DELETE MOVIES
+router.delete('/:id',autentication(["administrator"]), deleteMovie); //ONLY ADMINISTRATOR CAN DELETE MOVIES
 
 // UPDATE/PATCH A MOVIE
-router.patch('/:id',autentication("administrador") , updateMovie); //ONLY ADMINISTRATOR CAN UPDATE MOVIES
+router.patch('/:id',autentication(["administrador"]) , updateMovie); //ONLY ADMINISTRATOR CAN UPDATE MOVIES
 
 export default router;

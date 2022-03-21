@@ -17,8 +17,7 @@ const postUser = async (req,res,next) => {
         const userToCreate = {
             name: req.body.name,
             email: req.body.email,
-            password: await hashPsswd(req.body.password),
-            role: req.body.role
+            password: await hashPsswd(req.body.password)
         }
         const userCreated = await Users.create(userToCreate);
         res.status(200).json(userCreated)

@@ -13,10 +13,10 @@ router.get('/:id', autentication(), getUserById) // ONLY REGISTERED USERS CAN GE
 router.post('/', postUser) // ALL CAN CREATE A USER
 
 //DELETE USER BY ID
-router.delete('/:id', autentication("administrator"), deleteUser) // ONLY ADMININISTRATOR CAN DELETE USERS
+router.delete('/:id', autentication(["administrator"]), deleteUser) // ONLY ADMININISTRATOR CAN DELETE USERS
 
 //PATCH USER
-router.patch('/:id', autentication("administrator"), updateUser); // ONLY ADMINISTRATOR CAN UPDATE USERS
+router.patch('/:id', autentication(["administrator"]), updateUser); // ONLY ADMINISTRATOR CAN UPDATE USERS
 
 // ENDPOINT TO AUTENTICATE AND TO CREATE A TOKEN
 router.post('/auth', createToken) // ALL CAN ENTER IN THIS ENDPOINT AND TAKE A TOKEN
