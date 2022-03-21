@@ -2,7 +2,7 @@
 
 ## Índice
 
-- [Api Restfull de Peliculas](#Api Restfull de Peliculas)
+- [Api Restfull de Peliculas](#Api-Restfull-de-Peliculas)
   - [Stacks utilizados 🛠](#Tech-Stack)
   - [Requisitos 📋](#Descripcion-y-usabilidad-)
   - [Como instalarlo 🥷](#Instalacion-)
