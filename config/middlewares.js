@@ -25,13 +25,14 @@ const compareHash = async (password, pwdhashed) => {
 //MIDDLEWARE THAT GIVES YOU A TOKEN IF GIVEN USER PARAMETERS IN HEADERS
 const createToken = async (req, res, next) => {
   try {
+
     let userFound = await Users.findOne({
         email: req.headers.email
       });
       //console.log(userFound.password, ' hashed pwd')
     if (await compareHash(req.headers.password, userFound.password)) {
       console.log(userFound)
-      const token = jwt.sign({email: req.headers.email, password: req.headers.password, role: userFound.role }, process.env.SECRET_KEY)
+      const token = jwt.sign({email: req.headers.email, id: userFound._id, role: userFound.role }, process.env.SECRET_KEY)
       userFound.token = token
       res.json('This is your token: ' + token)
     } else {
@@ -48,6 +49,7 @@ const autentication = (rolesToCheck = null) => {
   return (req,res,next) => {
     try {
       const userDecoded = jwt.verify(req.headers.token, process.env.SECRET_KEY)
+      req.token = userDecoded
       if (rolesToCheck == null || rolesToCheck.find((role)=> role === userDecoded.role)){
         next();
       }else{

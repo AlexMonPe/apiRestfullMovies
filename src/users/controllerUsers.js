@@ -62,8 +62,8 @@ const deleteUser = async (req,res) => {
 // PATCH/UPDATE USER 
 const updateUser = async (req,res) => {
     try {
-        await Users.updateOne({_id: req.params.id}, req.body)
-        res.status(200).json('Updated id = ' + req.params.id)
+        await Users.updateOne({_id: req.token.id}, req.body)
+        res.status(200).json('Updated id = ' + req.token.id)
     } catch(error){
         res.json(error)
     }
