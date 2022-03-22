@@ -3,6 +3,8 @@ import routerMovies from "./src/movies/routerMovies.js"; //MOVIES ROUTERS
 import routerUsers from "./src/users/routerUsers.js"; // USERS ROUTERS
 import routerRent from "./src/rent/routerRent.js"; // RENT ROUTERS
 import connection from "./config/BD.js"; // CONNECTION OF DB
+import swaggerUi from "swagger-ui-express";
+import swaggerDoc from "./config/openapi.js";
 import env from "dotenv";
 
 const app = express();
@@ -23,6 +25,7 @@ app.get('/', (req,res)=> res.send('Welcome to my API, read ' + text.link(myGithu
 app.use('/movies', routerMovies); //ENDPOINT OF MOVIES
 app.use('/users', routerUsers); //ENDPOINT OF USERS
 app.use('/rent', routerRent); // ENDPOINT OF RENT
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc)) // ENDPOINT FOR DOCUMENTATION
 
 
 app.set("port", process.env.PORT || 5000);
