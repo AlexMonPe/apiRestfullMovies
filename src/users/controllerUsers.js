@@ -62,11 +62,27 @@ const deleteUser = async (req,res) => {
 // PATCH/UPDATE USER 
 const updateUser = async (req,res) => {
     try {
-        await Users.updateOne({_id: req.token.id}, req.body)
-        res.status(200).json('Updated id = ' + req.token.id)
+        await Users.updateOne({_id: req.params.id}, req.body)
+        res.status(200).json('Updated id = ' + req.params.id)
     } catch(error){
         res.json(error)
     }
 }
 
-export {getUser, getUserById, postUser, deleteUser, updateUser};
+// CREATE ADMIN USERS
+
+const adminCreator = async (req,res) => {
+    try {
+        const newAdmin = {
+            name: req.body.name,
+            email: req.body.email,
+            password: await hashPsswd(req.body.password),
+            role: 'Admin'
+        }
+        res.json(await Users.create(newAdmin))
+    }catch{
+        res.json(error)
+    }
+}
+
+export {getUser, getUserById, postUser, deleteUser, updateUser, adminCreator};
