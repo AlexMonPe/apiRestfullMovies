@@ -6,6 +6,8 @@ import connection from "./config/BD.js"; // CONNECTION OF DB
 import swaggerUi from "swagger-ui-express";
 import swaggerDoc from "./config/openapi.js";
 import env from "dotenv";
+import cors from "cors";
+
 
 const app = express();
 
@@ -17,6 +19,7 @@ await connection();
 
 // PARSE BODY TO JSON TO INTERPRETATE IT
 app.use(express.json())
+app.use(cors())
 
 const myGithub = "https://github.com/AlexMonPe/apiRestfullMovies"
 const text = "documentation"
