@@ -9,8 +9,7 @@ const getRent = async (req, res) => {
   if (req.query.rent_date) queryRent.rent_date = req.query.rent_date;
   if (req.query.return_date) queryRent.return_date = req.query.return_date;
   if (req.query.totalPrice) queryRent.totalPrice = req.query.totalPrice;
-  res.json(await Rent.find(queryRent));
-  res.json(await Rent.find({}).populate(["idMovie", "idUser"]));
+  res.json(await Rent.find(queryRent).populate(["idMovie", "idUser"]));
 };
 //FIND RENTS BY USER ID
 const getRentbyUser = async (req, res) => {
