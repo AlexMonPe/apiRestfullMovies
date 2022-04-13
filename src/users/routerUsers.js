@@ -10,7 +10,7 @@ router.get('/', getUser) // ALL  USERS CAN GET USERS
 router.get('/:id', /*autentication(),*/ getUserById) // ONLY REGISTERED USERS CAN GET USERS BY ID
 
 //POST NEW USER
-router.post('/signup', postUser) // ALL CAN CREATE A USER
+router.post('/register', postUser) // ALL CAN CREATE A USER
 
 //DELETE USER BY ID
 router.delete('/:id', /*(["administrator"]),*/ deleteUser) // ONLY ADMININISTRATOR CAN DELETE USERS
