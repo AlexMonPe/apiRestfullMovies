@@ -8,8 +8,10 @@ const Schema = new mongoose.Schema({
     genre: String,
     actor: String,
     duration: Number,
-    price: {type: mongoose.Schema.Types.Decimal128, required: true },
+    overview: String,
+    price: {type: Number, required: true },
     image: String,
+    trailer: String
 });
 const Movies = mongoose.model('Movies', Schema);
 export default Movies;
