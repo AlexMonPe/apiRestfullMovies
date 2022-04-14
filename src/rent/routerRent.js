@@ -4,8 +4,8 @@ import {deleteRent, getRent, getRentById, getRentbyMovie, getRentbyUser, postRen
 
 router.get("/", getRent);
 router.get("/:id", getRentById)
-router.get("/byuser/:_id", getRentbyUser)
-router.get("/bymovie/", getRentbyMovie)
+router.get("/byuser/:id", getRentbyUser)
+router.get("/bymovie/:id", getRentbyMovie)
 router.post("/", postRent);
 router.delete("/:id", deleteRent)
 router.patch("/:id", updateRent)
