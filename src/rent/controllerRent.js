@@ -14,12 +14,12 @@ const getRent = async (req, res) => {
 //FIND RENTS BY USER ID
 const getRentbyUser = async (req, res) => {
   res.json(
-    await Rent.findById({ idUser: req.params.id }).populate(["idUser", "idMovie"])
+    await Rent.find({ idUser: req.params.id }).populate(["idUser", "idMovie"])
   );
 };
 const getRentbyMovie = async (req, res) => {
   res.json(
-    await Rent.findById({ idMovie: req.params.id }).populate(["idUser", "idMovie"])
+    await Rent.find({ idMovie: req.params.id }).populate(["idUser", "idMovie"])
   );
 };
 const getRentById = async (req, res) => {
