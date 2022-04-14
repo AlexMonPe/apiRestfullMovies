@@ -8,7 +8,7 @@ const Schema = new mongoose.Schema({
     idUser: { type: mongoose.Schema.Types.ObjectId, ref: "Users", required: true },
     rent_date: { type: String, default: new Date().toLocaleDateString()},
     return_date: {type: String, default: new Date().toLocaleDateString()},
-    totalPrice: {type: Number, required: true }
+    totalPrice: {type: Number}
 });
 const Rent = mongoose.model('Rent', Schema);
 export default Rent;
