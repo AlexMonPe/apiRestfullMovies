@@ -10,6 +10,8 @@ import cors from "cors";
 
 
 const app = express();
+app.use(express.json())
+app.use(cors())
 
 // ENVIRONMENT VARS
 env.config();
@@ -18,8 +20,7 @@ env.config();
 await connection();
 
 // PARSE BODY TO JSON TO INTERPRETATE IT
-app.use(express.json())
-app.use(cors())
+
 
 const myGithub = "https://github.com/AlexMonPe/apiRestfullMovies"
 const text = "documentation"

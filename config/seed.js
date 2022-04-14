@@ -23,7 +23,7 @@ const mockMovies = [
         "price" : 3,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg",
         "trailer" : "https://www.youtube.com/watch?v=x_me3xsvDgk"
-    }
+    },
     {
         "_id" : ObjectId("6257efa03cbfb660260b4cde"),
         "title" : "Venom: Let there be carnage",
@@ -35,7 +35,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
         "trailer" : "https://www.youtube.com/watch?v=GVwq2HlKYpE"
-    }
+    },
     {
         "_id" : ObjectId("6257f2633cbfb660260c1c6a"),
         "title" : "The Godfather",
@@ -47,7 +47,7 @@ const mockMovies = [
         "price" : 2,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/n6PvMAKL66gavIFxOyRB6czAeQO.jpg",
         "trailer" : "https://www.youtube.com/watch?v=Ew9ngL1GZvs"
-    }
+    },
     {
         "_id" : ObjectId("6257f3213cbfb660260c4990"),
         "title" : "Schindler's List",
@@ -59,7 +59,7 @@ const mockMovies = [
         "price" : 3,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
         "trailer" : "https://www.youtube.com/watch?v=bJcLRFWxRno"
-    }
+    },
     {
         "_id" : ObjectId("6257f3b53cbfb660260c7055"),
         "title" : "Interstellar",
@@ -71,7 +71,7 @@ const mockMovies = [
         "price" : 5,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
         "trailer" : "https://www.youtube.com/watch?v=0vxOhd4qlnA"
-    }
+    },
     {
         "_id" : ObjectId("6257f4313cbfb660260c914c"),
         "title" : "Avengers: Endgame",
@@ -83,7 +83,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
         "trailer" : "https://www.youtube.com/watch?v=hA6hldpSTF8"
-    }
+    },
     {
         "_id" : ObjectId("6257f4ca3cbfb660260cbcae"),
         "title" : "Jurassic Park ",
@@ -95,7 +95,7 @@ const mockMovies = [
         "price" : 3,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
         "trailer" : "https://www.youtube.com/watch?v=hNX7hnG5Djo"
-    }
+    },
     {
         "_id" : ObjectId("6257f5f33cbfb660260d0cdd"),
         "title" : "The Green Mile",
@@ -107,7 +107,7 @@ const mockMovies = [
         "price" : 2,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/velWPhVMQeQKcxggNEU8YmIo52R.jpg",
         "trailer" : "https://www.youtube.com/watch?v=Bg7epsq0OIQ"
-    }
+    },
     {
         "_id" : ObjectId("6257f5f33cbfb660260d0ce8"),
         "title" : "Forrest Gump",
@@ -119,7 +119,7 @@ const mockMovies = [
         "price" : 3,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
         "trailer" : "https://www.youtube.com/watch?v=bLvqoHBptjg"
-    }
+    },
     {
         "_id" : ObjectId("6257f5f33cbfb660260d0cf3"),
         "title" : "The Pianist",
@@ -131,7 +131,7 @@ const mockMovies = [
         "price" : 1,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2hFvxCCWrTmCYwfy7yum0GKRi3Y.jpg",
         "trailer" : "https://www.youtube.com/watch?v=u_jE7-6Uv7E"
-    }
+    },
     {
         "_id" : ObjectId("6257f8053cbfb660260d9fda"),
         "title" : "Turning Red",
@@ -143,7 +143,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg",
         "trailer" : "https://www.youtube.com/watch?v=XdKzUbAiswE"
-    }
+    },
     {
         "_id" : ObjectId("6257f8053cbfb660260d9fe5"),
         "title" : "Encanto",
@@ -155,7 +155,7 @@ const mockMovies = [
         "price" : 5,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
         "trailer" : "https://www.youtube.com/watch?v=CaimKeDcudo"
-    }
+    },
     {
         "_id" : ObjectId("6257f8053cbfb660260d9ff1"),
         "title" : "Hotel Transylvania: Transformania",
@@ -167,7 +167,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/teCy1egGQa0y8ULJvlrDHQKnxBL.jpg",
         "trailer" : "https://www.youtube.com/watch?v=7AP86CYeR30"
-    }
+    },
     {
         "_id" : ObjectId("6257f8053cbfb660260d9ffe"),
         "title" : "Ron's Gone Wrong",
@@ -179,7 +179,7 @@ const mockMovies = [
         "price" : 5,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/plzgQAXIEHm4Y92ktxU6fedUc0x.jpg",
         "trailer" : "https://www.youtube.com/watch?v=8I8nMtzN05s"
-    }
+    },
     {
         "_id" : ObjectId("6257f8053cbfb660260da00c"),
         "title" : "Dragon Ball Z: Resurrection 'F'",
@@ -191,7 +191,7 @@ const mockMovies = [
         "price" : 5,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/soq3AxjALdBfdPAm8H7yuMmNL5Y.jpg",
         "trailer" : "https://www.youtube.com/watch?v=WiONylGn8Xw"
-    }
+    },
     {
         "_id" : ObjectId("6257f9ea3cbfb660260e27b8"),
         "title" : "A Quiet Place Part II ",
@@ -203,7 +203,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
         "trailer" : "https://www.youtube.com/watch?v=BpdDN9d9Jio"
-    }
+    },
     {
         "_id" : ObjectId("6257f9ea3cbfb660260e27c4"),
         "title" : "Joker ",
@@ -215,7 +215,7 @@ const mockMovies = [
         "price" : 6,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
         "trailer" : "https://www.youtube.com/watch?v=-RFFRxcoKfA"
-    }
+    },
     {
         "_id" : ObjectId("6257f9ea3cbfb660260e27d3"),
         "title" : "Escape Room: Tournament of Champions ",
@@ -227,7 +227,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jGYJyPzVgrVV2bgClI9uvEZgVLE.jpg",
         "trailer" : "https://www.youtube.com/watch?v=KlfUbZJVInA"
-    }
+    },
     {
         "_id" : ObjectId("6257f9ea3cbfb660260e27f0"),
         "title" : "World War Z",
@@ -239,7 +239,7 @@ const mockMovies = [
         "price" : 1,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1SWBSYJsnyhdNRfLI1T6RsCxAQ4.jpg",
         "trailer" : "https://www.youtube.com/watch?v=TvRCQM2HrXs"
-    }
+    },
     {
         "_id" : ObjectId("6257f9ea3cbfb660260e2800"),
         "title" : "I Am Legend ",
@@ -251,7 +251,7 @@ const mockMovies = [
         "price" : 3,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg",
         "trailer" : "https://www.youtube.com/watch?v=dtKMEAXyPkg"
-    }
+    },
     {
         "_id" : ObjectId("6257fb593cbfb660260ea132"),
         "title" : "",
@@ -263,7 +263,7 @@ const mockMovies = [
         "price" : 4,
         "image" : "",
         "trailer" : ""
-    }
+    },
     {
         "_id" : ObjectId("6257fb593cbfb660260ea13d"),
         "title" : "The Jack in the Box: Awakening",
@@ -275,7 +275,7 @@ const mockMovies = [
         "price" : 1,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3Ib8vlWTrAKRrTWUrTrZPOMW4jp.jpg",
         "trailer" : "https://www.youtube.com/watch?v=7InYvYQq8DU"
-    }
+    },
     {
         "_id" : ObjectId("6257fb593cbfb660260ea148"),
         "title" : "No exit",
@@ -287,7 +287,7 @@ const mockMovies = [
         "price" : 1,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5cnLoWq9o5tuLe1Zq4BTX4LwZ2B.jpg",
         "trailer" : "https://www.youtube.com/watch?v=GFvupyiNEz0"
-    }
+    },
     {
         "_id" : ObjectId("6257fb593cbfb660260ea154"),
         "title" : "The Conjuring: The Devil Made Me Do It",
@@ -299,7 +299,7 @@ const mockMovies = [
         "price" : 2,
         "image" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg",
         "trailer" : "https://www.youtube.com/watch?v=qc6jN1BcJi0"
-    }
+    },
     {
         "_id" : ObjectId("6257fb5a3cbfb660260ea164"),
         "title" : "It Chapter Two ",
