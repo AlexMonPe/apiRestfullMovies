@@ -31,7 +31,7 @@ const postRent = async (req, res) => {
   const rentToCreate = {
     idMovie: req.body.idMovie,
     idUser: req.body.idUser,
-    date: new Date(),
+    totalPrice: req.body.totalPrice,
   };
   try {
     const postedRent = await Rent.create(rentToCreate);
