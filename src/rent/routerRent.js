@@ -4,7 +4,7 @@ import {deleteRent, getRent, getRentById, getRentbyMovie, getRentbyUser, postRen
 
 router.get("/", getRent);
 router.get("/:id", getRentById)
-router.get("/byuser/:id", getRentbyUser)
+router.get("/byuser/:_id", getRentbyUser)
 router.get("/bymovie/", getRentbyMovie)
 router.post("/", postRent);
 router.delete("/:id", deleteRent)
