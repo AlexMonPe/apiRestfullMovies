@@ -332,7 +332,7 @@ const mockUsers = [
         "password" : "$2b$10$bnozcnQxni8Rlr5ypQEYDeR/uSF/Qhp52c2aPc/doKbkBWigrMVmG",
         "role" : "client",
         "__v" : 0
-    }
+    },
     {
         "_id" : ObjectId("6257ed0506715748e8b31e7d"),
         "name" : "Susana",
