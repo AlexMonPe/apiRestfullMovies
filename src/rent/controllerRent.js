@@ -13,9 +13,16 @@ const getRent = async (req, res) => {
 };
 //FIND RENTS BY USER ID
 const getRentbyUser = async (req, res) => {
-  res.json(
-    await Rent.find({ idUser: req.params.id }).populate(["idUser", "idMovie"])
-  );
+  try {
+    const rentFound = await Rent.find({ idUser: req.params.id }).populate([
+      "idUser",
+      "idMovie",
+    ]);
+    res.json(rentFound);
+  } catch (error) {
+    res.json(error);
+    console.log(error, "error backend in getRentbyuser");
+  }
 };
 const getRentbyMovie = async (req, res) => {
   res.json(
