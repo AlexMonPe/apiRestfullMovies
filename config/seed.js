@@ -363,3 +363,5 @@ await Users.insertMany(mockUsers)
 
 console.log('1 Rent, 4 Movies, 5 Users added');
 
+
+
