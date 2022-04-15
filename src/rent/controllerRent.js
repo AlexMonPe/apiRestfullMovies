@@ -9,7 +9,15 @@ const getRent = async (req, res) => {
   if (req.query.rent_date) queryRent.rent_date = req.query.rent_date;
   if (req.query.return_date) queryRent.return_date = req.query.return_date;
   if (req.query.totalPrice) queryRent.totalPrice = req.query.totalPrice;
-  res.json(await Rent.find(queryRent).populate(["idMovie", "idUser"]));
+  try {
+    const rentFound = await Rent.find(queryRent).populate([
+      "idMovie",
+      "idUser",
+    ]);
+    res.json(rentFound);
+  } catch (error) {
+    res.status(404).json(error);
+  }
 };
 //FIND RENTS BY USER ID
 const getRentbyUser = async (req, res) => {
@@ -20,19 +28,31 @@ const getRentbyUser = async (req, res) => {
     ]);
     res.json(rentFound);
   } catch (error) {
-    res.json(error);
+    res.status(404).json(error);
     console.log(error, "error backend in getRentbyuser");
   }
 };
 const getRentbyMovie = async (req, res) => {
-  res.json(
-    await Rent.find({ idMovie: req.params.id }).populate(["idUser", "idMovie"])
-  );
+  try {
+    const rentFound = await Rent.find({ idMovie: req.params.id }).populate([
+      "idUser",
+      "idMovie",
+    ]);
+    res.json(rentFound);
+  } catch (error) {
+    res.json(error);
+  }
 };
 const getRentById = async (req, res) => {
-  res.json(
-    await Rent.find({ _id: req.params.id }).populate(["idMovie", "idUser"])
-  );
+  try {
+    const rentFound = await Rent.find({ _id: req.params.id }).populate([
+      "idMovie",
+      "idUser",
+    ]);
+    res.json(rentFound);
+  } catch (error) {
+    res.status(404).json(error);
+  }
 };
 const postRent = async (req, res) => {
   const rentToCreate = {
