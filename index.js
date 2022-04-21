@@ -30,15 +30,15 @@ app.use('/movies', routerMovies); //ENDPOINT OF MOVIES
 app.use('/users', routerUsers); //ENDPOINT OF USERS
 app.use('/rent', routerRent); // ENDPOINT OF RENT
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc)) // ENDPOINT FOR DOCUMENTATION
-
+app.get('/echo', (req,res)=> res.json('test get works!!'))
 
 app.set("port", process.env.PORT || 5000);
 
 // HOW TO SERVER UP IN EXPRESS
-app.listen(app.get("port"), () => { 
+const server = app.listen(app.get("port"), () => { 
     console.log("Server up at " + process.env.SERVER_PORT)
 })
-
+export default server;
 
 
 
